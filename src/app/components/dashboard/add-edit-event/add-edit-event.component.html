@@ -1,0 +1,90 @@
+<div class="container">
+
+    <div class="formEvent">
+        <div class="formEventcontainer">
+            <label class="formHead">
+                Add New Events
+            </label>
+            <form [formGroup]="addEditEvent">
+                <input type="hidden" formControlName="_id" [ngModel]="userDetails._id" name="_id">
+                <div class="form-group">
+                    <label>Event Type<em>*</em></label>
+                    <select name="eventType" formControlName="eventType" [ngModel]="userDetails.eventType" required>
+                        <option value="">Select</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Aniversary">Aniversary</option>
+                        <option value="One Time Event">One Time Event</option>
+                    </select>
+                    <div class="errorMsgs"
+                        *ngIf="addEditEvent.controls.eventType.invalid && (addEditEvent.controls.eventType.dirty || addEditEvent.controls.eventType.touched)">
+                        <p *ngIf="addEditEvent.controls.eventType.errors.required">
+                            Event Type is Required
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Event Name<em>*</em></label>
+                    <input type="text" name="eventName" [ngModel]="userDetails.eventName" formControlName="eventName" minlength="3" required />
+                    <div class="errorMsgs"
+                        *ngIf="addEditEvent.controls.eventName.invalid && (addEditEvent.controls.eventName.dirty || addEditEvent.controls.eventName.touched)">
+                        <p *ngIf="addEditEvent.controls.eventName.errors.required">
+                            This field is Required
+                        </p>
+                        <p *ngIf="addEditEvent.controls.eventName.errors.minlength">
+                            Minimun 3 Chracters are Required
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Event Date<em>*</em></label>
+                    <input type="date" name="eventDate" [ngModel]="userDetails.eventDate" formControlName="eventDate" required />
+                    <div class="errorMsgs"
+                        *ngIf="addEditEvent.controls.eventDate.invalid && (addEditEvent.controls.eventDate.dirty || addEditEvent.controls.eventDate.touched)">
+                        <p *ngIf="addEditEvent.controls.eventDate.errors.required">
+                            This field is Required
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email<em>*</em></label>
+                    <input type="email" name="emailId" [ngModel]="userDetails.emailId" [ngModel]="userDetails.emailId" formControlName="emailId"
+                        required readonly />
+                    <div class="errorMsgs"
+                        *ngIf="addEditEvent.controls.emailId.invalid && (addEditEvent.controls.emailId.dirty || addEditEvent.controls.emailId.touched)">
+                        <p *ngIf="addEditEvent.controls.emailId.errors.required">
+                            This field is Required
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mobile<em>*</em></label>
+                    <input type="number" name="mobileNo" [ngModel]="userDetails.mobileNo" formControlName="mobileNo"
+                     minlength="10" maxlength="10" required />
+                    <div class="errorMsgs"
+                        *ngIf="addEditEvent.controls.mobileNo.invalid && (addEditEvent.controls.mobileNo.dirty || addEditEvent.controls.mobileNo.touched)">
+                        <p *ngIf="addEditEvent.controls.mobileNo.errors.required">
+                            This field is Required
+                        </p>
+                        <p *ngIf="addEditEvent.controls['mobileNo'].hasError('minlength')">
+                            Minimum 10 Chracters is required
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group dFlex">
+                    <label>Repeat Annually</label>
+                    <div class="switchOutr">
+                        <label class="switch">
+                            <input type="checkbox" [ngModel]="userDetails.isRepeatAnnually" name="isRepeatAnnually" formControlName="isRepeatAnnually" />
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group halfWidth">
+                    <button type="button" (click)="isSubmit(addEditEvent.value)" [disabled]="addEditEvent.invalid">
+                        <app-spiner></app-spiner> <span *ngIf="!spiner.show">Save</span></button>
+                    <button type="button" routerLink="/dashboard">Cencel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

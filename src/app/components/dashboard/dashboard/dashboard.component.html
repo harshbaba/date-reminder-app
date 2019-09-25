@@ -1,0 +1,35 @@
+<div class="formEvent">
+    <div class="container">
+
+        <div class="upcomingEvents">
+            <div class="addNewEventsOutr">
+                <h3 class="formHead">Dashboard</h3>
+                <a href="javascript:void(0);" routerLink="/add-edit-event" (click)="addEvent('add')" class="addNewEvents">Add New Events</a>
+            </div>
+
+            <div class="UpcomingEventsDataOutr">
+                <label class="upcomingEventHead">Upcoming Events</label>
+                <ul class="UpcomingEventsData">
+                    <li *ngFor="let item of eventList">
+                        <header>
+                            <strong>{{item.eventName}}</strong>
+                            <span class="action">
+                                <a href="javascript:void(0);" title="Edit Event" routerLink="/add-edit-event" (click)="editEvent(item, 'edit')"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0);" title="Delete Event" (click)="deleteEvent(item)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            </span>
+                        </header>
+                        <div class="upcomingEventcontent">
+                            <span>{{item.eventType}}</span>
+                            <span>{{item.eventDate}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="UserInfoDashboard">
+    <ul>
+        <li><a href="javascript:void(0);" routerLink="/user-profile"><i class="fa fa-user"></i><span>My Profile</span></a></li>
+    </ul>
+</div> -->

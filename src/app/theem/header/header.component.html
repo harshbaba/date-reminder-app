@@ -1,0 +1,26 @@
+<header class="header">
+	<a routerLink="/dashboard" class="logo">Logo</a>
+	<div class="headerRight">
+		<span class="userName">
+			{{userInfo}}
+			<small>Hi </small>
+			<label>{{authService.userDetails.firstName ? authService.userDetails.firstName : ((authService.userInfo) ? authService.userInfo.firstName : 'Guest') }}</label>
+		</span>
+		<a href="javascript:void(0);" class="userInfo" (click)="userinfo()"><i class="fa fa-user"></i></a>
+		<div class="userInfoDetails" *ngIf="authService.showInfo">
+			<ul class="userInfoDetailsList DashboarduserDetails" *ngIf="authService.logoutuser">
+				<li>
+					<a href="javascript:void(0);" routerLink = "/dashboard">My Account</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" (click)="authService.logout()">Logout</a>
+				</li>
+			</ul>
+			<ul class="userInfoDetailsList LoginuserDetails" *ngIf="authService.logedUser">
+				<li>
+					<a href="javascript:void(0);" routerLink = "/login">Login/ Sign Up</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>

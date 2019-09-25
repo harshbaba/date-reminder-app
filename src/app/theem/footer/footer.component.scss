@@ -1,0 +1,22 @@
+@import "../../../assets/scss/color.scss";
+@import "../../../assets/scss/variables.scss";
+@import "../../../assets/scss/mixin.scss";
+
+.footer{
+	padding:12px 18px;
+	text-align:center;
+	position: relative;
+	border-top:1px solid $darkGray;
+	// margin-bottom: 55px;
+	.socialLinks{
+		li{
+			display:inline-block;
+			a{
+				margin:0 10px 10px;
+			}
+		}
+	}
+	h6{
+		font-size:12px;
+	}
+}

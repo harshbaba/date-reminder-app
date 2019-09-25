@@ -1,0 +1,39 @@
+<div class="formEvent verticalCenter">
+	<div class="formEventcontainer">
+		<label class="formHead">
+			Login
+		</label>
+		<form [formGroup]="loginForm" novalidate>
+			<div class="form-group">
+				<label>Email Id<em>*</em></label>
+				<input type="email" formControlName="emailId" name="emailId" required email />
+				<div class="errorMsgs"
+					*ngIf="loginForm.controls.emailId.errors && (loginForm.controls.emailId.dirty || loginForm.controls.emailId.touched)">
+					<span *ngIf="loginForm.controls.emailId.errors.required">This fiels is required</span>
+					<span *ngIf="loginForm.controls.emailId.errors.email">Please enter a valid email</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Password<em>*</em></label>
+				<input type="password" name="password" minlength="4" formControlName="password" required />
+				<div class="errorMsgs"
+					*ngIf="loginForm.controls.password.errors && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
+					<span *ngIf="loginForm.controls.password.errors.required">This fiels is required</span>
+					<span *ngIf="loginForm.controls.password.errors.minlength">Password must be 4 charecter</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="forgotPassword">
+					<a routerLink="/forgot-password">Forgot Password?</a>
+				</div>
+			</div>
+			<div class="form-group">
+				<button type="button" (click)="isSubmit(loginForm.value)" [disabled]="loginForm.invalid"><app-spiner></app-spiner> <span *ngIf="!spiner.show">Login</span></button>
+			</div>
+		</form>
+		<div class="AlreadyRegLogin">
+			<label>OR</label>
+			<span>Don't have an account? <a routerLink="/register">Sign Up</a> here.</span>
+		</div>
+	</div>
+</div>

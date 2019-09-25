@@ -1,0 +1,158 @@
+form{
+	label{
+		margin-top:10px;
+		em{
+			color:$errorColor;
+			margin-left: 2px;
+			margin-top: -5px;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+	input,select{
+		margin:5px 0;
+		padding:8px 15px;
+		outline:0;
+		border:1px solid $darkGray;
+		color:$black;
+		font-size:13px;
+		line-height:24px;
+		width: 100%;
+	}
+	input[type="submit"]{
+		background:$black;
+		color:$white;
+		border:0;
+		margin:15px 0;
+		text-transform:uppercase;
+		cursor:pointer;
+		&:disabled{
+			cursor:not-allowed;
+		}
+	}
+	button[type="button"]{
+		background:$black;
+		color:$white;
+		border:0;
+		margin:15px 0;
+		text-transform:uppercase;
+		display: inline-block;
+		text-align: center;
+		padding: 8px 15px;
+		width: 100%;
+		font-size: 13px;
+		line-height: 24px;
+		cursor:pointer;
+		&:disabled{
+			cursor:not-allowed;
+			opacity: 0.7;
+		}
+	}
+}
+.errorMsgs{
+	color:$errorColor;
+	font-size: 12px;
+	line-height: 20px;
+}
+.formEvent{
+	padding:45px 0;	
+	@include breakpoint(xs) {
+		padding:20px 0;	
+	}
+	.formHead{
+		text-align:center;
+		text-transform:uppercase;
+		font-size: 20px;
+		line-height: 30px;
+		letter-spacing: 1.5px;
+	}
+}
+
+.formEventcontainer{
+	max-width:450px;
+	padding:0 20px;
+	margin:0 auto;
+	width:100%;	
+}
+.forgotPassword{
+	
+	a{
+		display:inline-block;
+		color:$black;
+		font-size:12px;
+		line-height:20px;
+		text-decoration:underline;
+		&:hover{
+			text-decoration:none;
+		}
+	}
+}
+.starFields{
+	span{
+		display:inline-block;
+		color:$errorColor;
+		font-size:12px;
+		line-height:20px;
+	}
+}
+.AlreadyRegLogin{
+	text-align:center;
+	label{
+		margin:10px 0;
+		font-size:18px;
+		line-height:20px;
+	}
+	span{
+		a{
+			text-decoration:underline;
+			&:hover{
+				text-decoration:none;
+			}
+		}
+	}
+}
+.switchOutr{
+	margin: 5px 0;
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 10px;
+		margin: 0;
+		input[type="checkbox"] { 
+			opacity: 0;
+			width: 0;
+			height: 0;
+			&:checked + .slider:before {
+				@include css3-transform(transform, translateX(33px));
+			}
+			&:checked + .slider {
+				background-color:$lightBlue;
+			}  
+			&:focus + .slider {
+				box-shadow: 0 0 1px $lightBlue;
+			}
+		}
+		.slider {
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color:$darkGray;
+			@include css3-transition(transition, 0.4s); 
+			&:before {
+				position: absolute;
+				content: "";
+				height: 20px;
+				width: 20px;
+				left: 3px;
+				background-color: $white;
+				@include css3-transition(transition, 0.4s); 
+				top: -6px;
+				box-shadow: 0 0 7px rgba(0,0,0,0.4);
+			}
+		}
+	}
+}

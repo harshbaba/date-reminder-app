@@ -1,0 +1,14 @@
+.spiner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+        margin: 0 3px;
+        font-size: 14px;
+        color: #fff;
+        text-transform: capitalize;
+        i {
+            color: #fff;
+        }
+    }
+}

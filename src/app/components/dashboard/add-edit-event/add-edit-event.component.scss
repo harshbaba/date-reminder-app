@@ -1,0 +1,16 @@
+.halfWidth {
+    display: flex;
+    justify-content: space-between;
+    button {
+        width: 48%;
+    }
+}
+.dFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    label {
+        margin: 0;
+    }
+}

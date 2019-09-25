@@ -1,0 +1,71 @@
+<div class="formEvent">
+	<div class="formEventcontainer">
+		<label class="formHead">
+			Register Now
+		</label>
+		<form [formGroup]="registrationForm">
+			<div class="form-group">
+				<label>First Name<em>*</em></label>
+				<input type="text" name="firstName" formControlName="firstName" minlength="3" required />
+				<div class="errorMsgs"
+					*ngIf="registrationForm.controls.firstName.errors && (registrationForm.controls.firstName.dirty || registrationForm.controls.firstName.touched)">
+					<span *ngIf="registrationForm.controls.firstName.errors.required">This fiels is required</span>
+					<span *ngIf="registrationForm.controls.firstName.errors.minlength">First name must be 3 charecter</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Last Name<em>*</em></label>
+				<input type="text" name="lastName" formControlName="lastName" minlength="3" required />
+				<div class="errorMsgs"
+					*ngIf="registrationForm.controls.lastName.errors && (registrationForm.controls.lastName.dirty || registrationForm.controls.lastName.touched)">
+					<span *ngIf="registrationForm.controls.lastName.errors.required">This fiels is required</span>
+					<span *ngIf="registrationForm.controls.lastName.errors.minlength">First name must be 3 charecter</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Email Id<em>*</em></label>
+				<input type="email" name="emailId" formControlName="emailId" required email/>
+				<div class="errorMsgs"
+					*ngIf="registrationForm.controls.emailId.errors && (registrationForm.controls.emailId.dirty || registrationForm.controls.emailId.touched)">
+					<span *ngIf="registrationForm.controls.emailId.errors.required">This fiels is required</span>
+					<span *ngIf="registrationForm.controls.emailId.errors.email">Please enter a vlaid email</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Mobile No<em>*</em></label>
+				<input type="number" name="mobileNo" formControlName="mobileNo" minlength="10" maxlength="10" required />
+				<div class="errorMsgs"
+					*ngIf="registrationForm.controls.mobileNo.errors && (registrationForm.controls.mobileNo.dirty || registrationForm.controls.mobileNo.touched)">
+					<span *ngIf="registrationForm.controls.mobileNo.errors.required">This fiels is required</span>
+					<span *ngIf="registrationForm.controls.mobileNo.errors.minlength">This 10 fiels is required</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Password<em>*</em></label>
+				<input type="password" name="password" formControlName="password" minlength="4" required />
+				<div class="errorMsgs"
+					*ngIf="registrationForm.controls.password.errors && (registrationForm.controls.password.dirty || registrationForm.controls.password.touched)">
+					<span *ngIf="registrationForm.controls.password.errors.required">This fiels is required</span>
+					<span *ngIf="registrationForm.controls.password.errors.minlength">password must be 4 charecter</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Confirm Password<em>*</em></label>
+				<input type="password" name="confirmPassword" formControlName="confirmPassword" required/>
+				<div class="errorMsgs"
+					*ngIf="registrationForm.controls.confirmPassword.errors && (registrationForm.controls.confirmPassword.dirty || registrationForm.controls.confirmPassword.touched)">
+					<span *ngIf="registrationForm.controls.confirmPassword.errors.required">This fiels is required</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<!-- <input type="submit" name="submit" value="Register" /> -->
+				<button type="button" (click)="isSubmit(registrationForm.value)" [disabled]="registrationForm.invalid" ><app-spiner></app-spiner> <span *ngIf="!spiner.show">Register</span></button>
+
+			</div>
+		</form>
+		<div class="AlreadyRegLogin">
+			<label>OR</label>
+			<span>If already registered <a routerLink = "/login">Login</a> here.</span>
+		</div>
+	</div>
+</div>

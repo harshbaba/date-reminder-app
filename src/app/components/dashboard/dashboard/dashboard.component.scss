@@ -1,0 +1,187 @@
+@import "../../../../assets/scss/color.scss";
+@import "../../../../assets/scss/variables.scss";
+@import "../../../../assets/scss/mixin.scss";
+
+.upcomingEvents{
+    .addNewEventsOutr{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+        .addNewEvents{
+            border: 1px solid $lightGray;
+            line-height: 32px;
+            padding: 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.0px;
+            font-size: 12px;
+            background: $lightGray;
+            &:hover{
+                background: $white;
+            }
+        }
+    }
+    // .FilteringDashBoard{
+    //     width: 25%;
+    //     float: left;
+    //     padding-right: 20px;
+    //     .FilteringDashBoardinner{
+    //         width: 100%;
+    //         float: left;
+    //         .filterHead{
+    //             border: 1px solid $darkGray;
+    //             padding: 10px 15px;
+    //             text-align: center;
+    //             background: $lightGray;
+    //             text-transform: uppercase;
+    //             font-size: 14px;
+    //             letter-spacing: 1.2px;
+    //             width: 100%;
+    //             float: left;
+    //             i{
+    //                 margin-left: 10px;
+    //             }
+    //         }
+    //         .filterShow{
+    //             width: 100%;
+    //             float: left;
+    //             border: 1px solid $darkGray;
+    //             border-top:0;
+    //             li{
+    //                 width: 100%;
+    //                 float: left;
+    //                 border-bottom: 1px solid $darkGray;
+    //                 padding: 10px 15px;
+    //                 text-transform: uppercase;
+    //                 letter-spacing: 1.2px;
+    //                 &:last-child{
+    //                     border-bottom: 0;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    .UpcomingEventsDataOutr{
+        .upcomingEventHead{
+            border: 1px solid $darkGray;
+            padding: 10px 15px;
+            text-align: center;
+            background: $lightGray;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1.2px;
+        }
+        .UpcomingEventsData{
+            border-left: 1px solid $darkGray;
+            display: flex;
+            flex-wrap: wrap;
+            li{
+                border-right: 1px solid $darkGray;
+                border-bottom: 1px solid $darkGray;
+                width: 50%;
+                @include breakpoint(xs) {
+                    width: 100%;
+                }
+                header {
+                    padding: 5px 15px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    // background: #f9f9f9;
+                    border-bottom: 1px solid $darkGray;
+                    .action {
+                        a {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+                .upcomingEventcontent{
+                    padding: 13px 15px;
+                    position: relative;
+                    line-height: 26px;
+                    display: flex;
+                    justify-content: space-between;
+                    .moreInfoEvent{
+                        position: absolute;
+                        right: 15px;
+                        top:50%;
+                        background: $lightGray;
+                        border: 1px solid $lightGray;
+                        @include css3-transform(transform,translate(0, -50%));
+                        padding: 0 10px;
+                        display: inline-block;
+                        text-transform: uppercase;
+                        font-size: 13px;
+                        
+                    }
+                }
+                &:nth-child(4n-2),&:nth-child(4n-1){
+                    header {
+                        // background: #cac9c9;
+                    }
+                    background: $lightGray;
+                    @include breakpoint(xs) {
+                        background: $white;
+                    }
+                    .upcomingEventcontent{
+                        .moreInfoEvent{
+                            background: $white;
+                            border: 1px solid $white;
+                            @include breakpoint(xs) {
+                                background:$lightGray;
+                                border: 1px solid $lightGray;
+                            }
+                        }
+                    }
+                }
+                &:nth-child(even){
+                    @include breakpoint(xs) {
+                        background: $lightGray;
+                    }
+                    .upcomingEventcontent{
+                        .moreInfoEvent{
+                            @include breakpoint(xs) {
+                                background:$white;
+                                border: 1px solid $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.UserInfoDashboard{
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid $darkGray;
+    padding: 7px 5px;
+    background: $lightGray;
+    z-index: 1;
+    ul{
+        li{
+            display: inline-block;
+            border-right: 1px solid $darkGray;
+            padding: 0 10px;
+            vertical-align: top;
+            a{
+                display: inline-block;
+                text-align: center;
+                font-size: 12px;
+                line-height: 20px;
+                text-transform: uppercase;
+                i{
+                    vertical-align: top;
+                    display: block;
+                }
+                span{
+                    display: block;
+                    margin-top:5px;
+                }
+            }
+            &:last-child{
+                border-right: 0;
+            }
+        }
+    }
+}
